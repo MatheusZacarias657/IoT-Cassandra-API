@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra_db
+    environment:
+      - CASSANDRA_USER=elmo
+      - CASSANDRA_PASSWORD=shakira
+    ports:
+      - "9042:9042"
+    volumes:
+      - ./data:/var/lib/cassandra
+    command: ["cassandra", "-f"]
+    
+  iot-api:
+    depends_on:
+      - cassandra
+    image: iot-api
+    container_name: iot-api
+    build:
+      context: IoTCassandraAPI
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - Settings_Cassandra_IP=cassandra
+    ports:
+      - 7045:80
+      - 17045:443    

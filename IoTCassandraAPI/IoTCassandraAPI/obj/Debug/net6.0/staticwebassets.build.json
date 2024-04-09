@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "0fy8BDx5c0Hq6dG2rJ63WGww3w/8WWPXZdVODSnql8M=",
+  "Source": "IoTCassandraAPI",
+  "BasePath": "_content/IoTCassandraAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

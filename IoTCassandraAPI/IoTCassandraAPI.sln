@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTCassandraAPI", "IoTCassandraAPI\IoTCassandraAPI.csproj", "{F436933D-DFBA-4E0F-BABB-1D339FC28DDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F436933D-DFBA-4E0F-BABB-1D339FC28DDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F436933D-DFBA-4E0F-BABB-1D339FC28DDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F436933D-DFBA-4E0F-BABB-1D339FC28DDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F436933D-DFBA-4E0F-BABB-1D339FC28DDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {945F5FFB-D2A9-406C-9F9A-5AD7EF1E420C}
+	EndGlobalSection
+EndGlobal
