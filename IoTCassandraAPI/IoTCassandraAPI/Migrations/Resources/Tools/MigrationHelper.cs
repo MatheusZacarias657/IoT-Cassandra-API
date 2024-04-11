@@ -12,6 +12,23 @@ namespace IoTCassandraAPI.Migrations.Resources.Tools
     {
         private static readonly string _migrationTable = "migration_history";
 
+        internal static bool CheckIfTableExists(ISession session, string keyspace)
+        {
+            try
+            {
+                string query = @$"DESCRIBE {keyspace}.{_migrationTable}";
+
+                PreparedStatement statement = session.Prepare(query);
+                Row row = session.Execute(statement.Bind()).FirstOrDefault();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         internal static void CreateMigrationTable(ISession session)
         {
             try
@@ -44,6 +61,8 @@ namespace IoTCassandraAPI.Migrations.Resources.Tools
                                                     .ToList();
 
                 List<MigrationRegister> scripts = new();
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Capture Migrations to execute...");
 
                 foreach (IMigrationPart migration in migrations)
                 {
@@ -51,11 +70,14 @@ namespace IoTCassandraAPI.Migrations.Resources.Tools
                 }
 
                 BubbleSort(scripts);
-
                 string lastMigration = MigrationHelper.FindLastMigration(session, keyspace);
 
                 if (!string.IsNullOrEmpty(lastMigration))
                     scripts = scripts.Where(v => IsVersionAbove(v.Version, lastMigration)).ToList();
+
+                string migrationsStatus = (scripts.Count > 0) ? "Has migrations to execute" : "All migrations was runned";
+                Console.ForegroundColor = (scripts.Count > 0) ? ConsoleColor.Red : ConsoleColor.Blue;
+                Console.WriteLine(migrationsStatus);
 
                 return scripts;
             }

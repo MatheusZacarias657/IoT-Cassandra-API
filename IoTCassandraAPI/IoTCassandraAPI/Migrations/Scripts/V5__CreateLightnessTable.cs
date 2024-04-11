@@ -18,8 +18,8 @@ namespace IoTCassandraAPI.Migrations.Scripts
                                     PRIMARY KEY(greenhouse)
                                 );
                                 
-                                CREATE INDEX IF NOT EXISTS idx_light_id ON lightness (id);
-                                CREATE INDEX IF NOT EXISTS idx_light_date ON lightness (register_date);";
+                                CREATE INDEX IF NOT EXISTS idx_lightness_id ON lightness (id);
+                                CREATE INDEX IF NOT EXISTS idx_lightness_date ON lightness (register_date);";
 
                 return CreateMigrationRegister<CreateLightnessTable>(query);
             }

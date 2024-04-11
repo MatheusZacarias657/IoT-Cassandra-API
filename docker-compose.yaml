@@ -21,8 +21,8 @@ services:
     build:
       context: IoTCassandraAPI
     environment:
-      - ASPNETCORE_ENVIRONMENT=Docker
-      - Settings_Cassandra_IP=cassandra
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Settings__Cassandra__IP=cassandra
     ports:
       - 7045:80
       - 17045:443    

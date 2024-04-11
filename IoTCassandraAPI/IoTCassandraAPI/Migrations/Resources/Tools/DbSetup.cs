@@ -17,9 +17,12 @@ namespace IoTCassandraAPI.Migrations.Resources.Tools
                 try
                 {
                     session = cluster.Connect(keyspace);
+                    Console.WriteLine($"The keyspace {keyspace} alredy exists");
                 }
                 catch (Exception)
                 {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine($"Creating keyspace: {keyspace}...");
                     string keyspaceConfig = GetReplicationConfig(configuration);
                     CreateKeySpace(cluster, keyspace, keyspaceConfig);
 
@@ -28,18 +31,24 @@ namespace IoTCassandraAPI.Migrations.Resources.Tools
                     firstStart = true;
                 }
 
-                if (firstStart)
+                if (!MigrationHelper.CheckIfTableExists(session, keyspace))
                     MigrationHelper.CreateMigrationTable(session);
 
                 List<MigrationRegister> migrations = MigrationHelper.GetMigrations(session, keyspace);
                 
                 foreach (MigrationRegister migration in migrations)
                 {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine($"Executing migration {migration.Description}");
                     MigrationHelper.ExecuteMigration(session, migration.Migration);
                     MigrationHelper.RegisterMigration(session, migration, keyspace);
                 }
 
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Finish Migrations");
+
                 session.Dispose();
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception)
             {
