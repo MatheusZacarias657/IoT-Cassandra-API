@@ -15,10 +15,10 @@ namespace IoTCassandraAPI.Migrations.Scripts
                                     id TEXT,
                                     value DOUBLE,
                                     register_date TIMESTAMP,
-                                    PRIMARY KEY(greenhouse)
+                                    PRIMARY KEY(id)
                                 );
                                 
-                                CREATE INDEX IF NOT EXISTS idx_temperature_id ON temperature (id);
+                                CREATE INDEX IF NOT EXISTS idx_temperature_greenhouse ON temperature (greenhouse);
                                 CREATE INDEX IF NOT EXISTS idx_temperature_date ON temperature (register_date);";
 
                 return CreateMigrationRegister<CreateTemperatureTable>(query);

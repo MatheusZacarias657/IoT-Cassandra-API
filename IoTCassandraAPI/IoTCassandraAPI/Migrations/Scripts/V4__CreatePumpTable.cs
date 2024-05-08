@@ -15,10 +15,10 @@ namespace IoTCassandraAPI.Migrations.Scripts
                                     id TEXT,
                                     value BOOLEAN,
                                     register_date TIMESTAMP,
-                                    PRIMARY KEY(greenhouse)
+                                    PRIMARY KEY(id)
                                 );
                                 
-                                CREATE INDEX IF NOT EXISTS idx_pump_id ON pump (id);
+                                CREATE INDEX IF NOT EXISTS idx_pump_greenhouse ON pump (greenhouse);
                                 CREATE INDEX IF NOT EXISTS idx_pump_date ON pump (register_date);";
 
                 return CreateMigrationRegister<CreatePumpTable>(query);

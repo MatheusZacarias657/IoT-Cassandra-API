@@ -4,3 +4,6 @@ IoTCassandraAPI/IoTCassandraAPI/obj/
 *.user
 *.dll
 *.bak
+data/
+IoTCassandraAPI/ETL/bin/
+IoTCassandraAPI/ETL/obj/

@@ -15,7 +15,7 @@ namespace IoTCassandraAPI.Migrations.Scripts
                                     id TEXT,
                                     value DOUBLE,
                                     register_date TIMESTAMP,
-                                    PRIMARY KEY(greenhouse)
+                                    PRIMARY KEY(id)
                                 );";
 
                 return CreateMigrationRegister<CreateSoilHumidityTable>(query);
