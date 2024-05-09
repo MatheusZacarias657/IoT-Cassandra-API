@@ -1,0 +1,32 @@
+﻿using IoTCassandraAPI.Migrations.Resources.DTO;
+using IoTCassandraAPI.Migrations.Resources.Interface;
+using IoTCassandraAPI.Migrations.Resources.Tools;
+
+namespace IoTCassandraAPI.Migrations.Scripts
+{
+    public class CreateTemperaturePumpTable : BaseMigration, IMigrationPart
+    {
+        public MigrationRegister GiveMigrationScript()
+        {
+            try
+            {
+                string query = @"CREATE TABLE IF NOT EXISTS temperature_pump (
+                            greenhouse TEXT,
+                            id TEXT,
+                            temperature_value DOUBLE,
+                            pump_state BOOLEAN,
+                            register_date TIMESTAMP,
+                            PRIMARY KEY(id)
+                        );
+
+                        CREATE INDEX IF NOT EXISTS idx_temperature_pump_date ON temperature_pump (register_date);";
+
+                return CreateMigrationRegister<CreateTemperaturePumpTable>(query);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+    }
+}
