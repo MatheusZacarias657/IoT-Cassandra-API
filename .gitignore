@@ -7,3 +7,5 @@ IoTCassandraAPI/IoTCassandraAPI/obj/
 data/
 IoTCassandraAPI/ETL/bin/
 IoTCassandraAPI/ETL/obj/
+IoTCassandraAPI/Domain/bin/
+IoTCassandraAPI/Domain/obj/

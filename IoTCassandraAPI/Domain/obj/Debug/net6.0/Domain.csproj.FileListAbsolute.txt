@@ -1,12 +1,12 @@
+C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\bin\Debug\net6.0\Domain.deps.json
+C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\bin\Debug\net6.0\Domain.dll
+C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\bin\Debug\net6.0\Domain.pdb
+C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
 C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\obj\Debug\net6.0\Domain.AssemblyInfoInputs.cache
 C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\obj\Debug\net6.0\Domain.AssemblyInfo.cs
 C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\obj\Debug\net6.0\Domain.csproj.CoreCompileInputs.cache
 C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\obj\Debug\net6.0\Domain.sourcelink.json
-C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\bin\Debug\net6.0\Domain.deps.json
-C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\bin\Debug\net6.0\Domain.dll
-C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\bin\Debug\net6.0\Domain.pdb
-C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
 C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\obj\Debug\net6.0\Domain.dll
 C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\obj\Debug\net6.0\refint\Domain.dll
 C:\Git\IoT-Cassandra-API\IoTCassandraAPI\Domain\obj\Debug\net6.0\Domain.pdb

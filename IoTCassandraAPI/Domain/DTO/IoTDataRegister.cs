@@ -2,7 +2,6 @@
 {
     public class IoTDataRegister<T>
     {
-        public T Value { get; set; }
-        public string Greenhouse { get; set; }
+        public T Data { get; set; }
     }
 }

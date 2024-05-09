@@ -18,12 +18,12 @@ namespace IoTCassandraAPI.Controllers
             _tableName = "lightness";
         }
 
-        [HttpPost("")]
-        public IActionResult Register([FromBody] IoTDataRegister<double> data)
+        [HttpPost("{greenhouse}")]
+        public IActionResult Register([FromBody] IoTDataRegister<double> data, [FromRoute] string greenhouse)
         {
             try
             {
-                IoTData<double> register = _dataManipulation.Register(data.Value, data.Greenhouse, _tableName);
+                IoTData<double> register = _dataManipulation.Register(data.Data, greenhouse, _tableName);
                 var location = Url.Action(nameof(Register), new { greenhouse = register.Greenhouse, id = register.Id }) ?? $"/{register.Greenhouse}/{register.Id}";
 
                 return Created(location, data);

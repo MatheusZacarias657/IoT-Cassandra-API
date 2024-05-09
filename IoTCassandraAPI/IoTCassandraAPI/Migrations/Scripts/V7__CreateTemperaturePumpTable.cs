@@ -19,7 +19,8 @@ namespace IoTCassandraAPI.Migrations.Scripts
                             PRIMARY KEY(id)
                         );
 
-                        CREATE INDEX IF NOT EXISTS idx_temperature_pump_date ON temperature_pump (register_date);";
+                        CREATE INDEX IF NOT EXISTS idx_temperature_pump_date ON temperature_pump (register_date);
+                        CREATE INDEX IF NOT EXISTS idx_temperature_pump_greenhouse ON temperature_pump (greenhouse);";
 
                 return CreateMigrationRegister<CreateTemperaturePumpTable>(query);
             }

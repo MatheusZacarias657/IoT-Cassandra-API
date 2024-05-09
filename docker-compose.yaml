@@ -11,11 +11,18 @@ services:
       - "9042:9042"
     volumes:
       - ./data:/var/lib/cassandra
-    command: ["cassandra", "-f"]
+    command: 
+      ["cassandra", "-f"]
+    healthcheck:
+      test: ["CMD", "cqlsh", "-e", "DESCRIBE KEYSPACES;"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
     
   iot-api:
     depends_on:
-      - cassandra
+      cassandra:
+        condition: service_healthy
     image: iot-api
     container_name: iot-api
     build:
@@ -25,4 +32,11 @@ services:
       - Settings__Cassandra__IP=cassandra
     ports:
       - 7045:80
-      - 17045:443    
+      - 17045:443  
+
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+     - '3000:3000'  

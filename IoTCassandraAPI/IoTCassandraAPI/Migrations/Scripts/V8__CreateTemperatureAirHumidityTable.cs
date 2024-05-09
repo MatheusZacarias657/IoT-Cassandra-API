@@ -19,6 +19,7 @@ namespace IoTCassandraAPI.Migrations.Scripts
                             PRIMARY KEY(id)
                         );
 
+                        CREATE INDEX IF NOT EXISTS idx_temperature_air_humidity_greenhouse ON temperature_air_humidity (greenhouse);
                         CREATE INDEX IF NOT EXISTS idx_temperature_air_humidity_date ON temperature_air_humidity (register_date);";
 
                 return CreateMigrationRegister<CreateTemperatureAirHumidityTable>(query);
