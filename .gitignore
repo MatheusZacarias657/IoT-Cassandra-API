@@ -1,11 +1,7 @@
 .vs/
-IoTCassandraAPI/IoTCassandraAPI/bin/
-IoTCassandraAPI/IoTCassandraAPI/obj/
 *.user
 *.dll
 *.bak
 data/
-IoTCassandraAPI/ETL/bin/
-IoTCassandraAPI/ETL/obj/
-IoTCassandraAPI/Domain/bin/
-IoTCassandraAPI/Domain/obj/
+**/bin/
+**/obj/

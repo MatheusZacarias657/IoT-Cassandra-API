@@ -1,0 +1,18 @@
+services:    
+  topicos-api:
+    image: topicos-api
+    container_name: topicos-api
+    build:
+      context: IoTCassandraAPI
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Settings__Cassandra__IP=cassandra
+    ports:
+      - 7045:80
+      - 17045:443   
+
+  topicos-etl:
+    image: topicos-etl
+    container_name: topicos-etl
+    build:
+      context: ETL

@@ -1,0 +1,22 @@
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+#COPY ["IoTCassandraAPI/IoTCassandraAPI/IoTCassandraAPI.sln", "IoTCassandraAPI/"]
+COPY ["Topicos/IoTCassandraAPI/", "IoTCassandraAPI/"]
+COPY ["Topicos/Domain/", "Domain/"]
+RUN dotnet restore "IoTCassandraAPI/IoTCassandraAPI.sln"
+COPY . .
+WORKDIR "/src/IoTCassandraAPI"
+RUN dotnet build "IoTCassandraAPI.sln" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "IoTCassandraAPI.sln" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "IoTCassandraAPI.dll"]

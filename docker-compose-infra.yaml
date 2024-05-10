@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   cassandra:
     image: cassandra:latest
@@ -18,23 +16,11 @@ services:
       interval: 10s
       timeout: 10s
       retries: 5
-    
-  iot-api:
+
+  grafana:
     depends_on:
       cassandra:
         condition: service_healthy
-    image: iot-api
-    container_name: iot-api
-    build:
-      context: IoTCassandraAPI
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - Settings__Cassandra__IP=cassandra
-    ports:
-      - 7045:80
-      - 17045:443  
-
-  grafana:
     image: grafana/grafana-enterprise
     container_name: grafana
     restart: unless-stopped
