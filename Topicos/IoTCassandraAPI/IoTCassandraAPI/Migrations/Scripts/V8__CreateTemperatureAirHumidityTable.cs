@@ -13,14 +13,13 @@ namespace IoTCassandraAPI.Migrations.Scripts
                 string query = @"CREATE TABLE IF NOT EXISTS temperature_air_humidity (
                             greenhouse TEXT,
                             id TEXT,
-                            air_value DOUBLE,
+                            air_humidity_value DOUBLE,
                             temperature_value DOUBLE,
                             register_date TIMESTAMP,
-                            PRIMARY KEY(id)
+                            PRIMARY KEY((register_date), id)
                         );
 
-                        CREATE INDEX IF NOT EXISTS idx_temperature_air_humidity_greenhouse ON temperature_air_humidity (greenhouse);
-                        CREATE INDEX IF NOT EXISTS idx_temperature_air_humidity_date ON temperature_air_humidity (register_date);";
+                        CREATE INDEX IF NOT EXISTS idx_temperature_air_humidity_greenhouse ON temperature_air_humidity (greenhouse);";
 
                 return CreateMigrationRegister<CreateTemperatureAirHumidityTable>(query);
             }

@@ -45,6 +45,12 @@ namespace IoTCassandraAPI.Application.Util
                         string finalDate = dateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
                         values += $"'{finalDate}',";
                     }
+                    else if (prop.PropertyType == typeof(double))
+                    {
+                        double doubleValue = Convert.ToDouble(propValue);
+                        string result = doubleValue.ToString("F2", CultureInfo.InvariantCulture);
+                        values += $"{result},";
+                    }
                     else
                     {
                         values += $"{propValue},";

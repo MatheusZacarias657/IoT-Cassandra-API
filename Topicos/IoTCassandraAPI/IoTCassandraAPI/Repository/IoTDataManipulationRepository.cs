@@ -1,7 +1,7 @@
 ﻿using Cassandra;
+using Domain.Interface.API.Repository;
 using IoTCassandraAPI.Application.Util;
 using IoTCassandraAPI.Domain.Entity;
-using IoTCassandraAPI.Domain.Interface.Repository;
 using ISession = Cassandra.ISession;
 
 namespace IoTCassandraAPI.Repository

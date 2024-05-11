@@ -15,11 +15,10 @@ namespace IoTCassandraAPI.Migrations.Scripts
                                     id TEXT,
                                     value DOUBLE,
                                     register_date TIMESTAMP,
-                                    PRIMARY KEY(id)
+                                    PRIMARY KEY((register_date), id)
                                 );
                                 
-                                CREATE INDEX IF NOT EXISTS idx_lightness_greenhouse ON lightness (greenhouse);
-                                CREATE INDEX IF NOT EXISTS idx_lightness_date ON lightness (register_date);";
+                                CREATE INDEX IF NOT EXISTS idx_lightness_greenhouse ON lightness (greenhouse);";
 
                 return CreateMigrationRegister<CreateLightnessTable>(query);
             }

@@ -3,8 +3,10 @@ set -e
 echo "Build Applications.."
 
 if [ -z "$1" ]; then
-  docker build -t topicos-api -f Topicos/Dockerfile-API .
-  docker build -t topicos-etl -f Topicos/Dockerfile-ETL .
+    docker build -t topicos-api -f Topicos/Dockerfile-API .
+    docker build -t topicos-etl -f Topicos/Dockerfile-ETL .
+elif [ "$1" = "no-build" ]; then
+    echo "No Build Requested"
 else
     docker build -t topicos-etl -f Topicos/Dockerfile-$1 .
 fi

@@ -1,6 +1,6 @@
-﻿using IoTCassandraAPI.Domain.DTO;
+﻿using Domain.Interface.API.Service;
+using IoTCassandraAPI.Domain.DTO;
 using IoTCassandraAPI.Domain.Entity;
-using IoTCassandraAPI.Domain.Interface.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IoTCassandraAPI.Controllers

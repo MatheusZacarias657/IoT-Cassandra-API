@@ -1,11 +1,9 @@
 ﻿using Cassandra;
+using Domain.Interface.API.Repository;
+using Domain.Interface.API.Service;
 using IoTCassandraAPI.Application.Service;
-using IoTCassandraAPI.Domain.Interface.Repository;
-using IoTCassandraAPI.Domain.Interface.Service;
 using IoTCassandraAPI.Migrations.Resources.Tools;
 using IoTCassandraAPI.Repository;
-using System.Diagnostics.Metrics;
-using ISession = Cassandra.ISession;
 
 namespace IoTCassandraAPI
 {

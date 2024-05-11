@@ -10,17 +10,16 @@ namespace IoTCassandraAPI.Migrations.Scripts
         {
             try
             {
-                string query = @"CREATE TABLE IF NOT EXISTS soil_air_humidity (
+                string query = @"CREATE TABLE IF NOT EXISTS soil_humidity_air_humidity (
                                     greenhouse TEXT,
                                     id TEXT,
-                                    air_value DOUBLE,
-                                    soil_value DOUBLE,
+                                    soil_humidity_value DOUBLE,
+                                    air_humidity_value DOUBLE,
                                     register_date TIMESTAMP,
-                                    PRIMARY KEY(id)
+                                    PRIMARY KEY((register_date), id)
                                 );
 
-                                CREATE INDEX IF NOT EXISTS idx_soil_air_humidity_date ON soil_air_humidity (register_date);
-                                CREATE INDEX IF NOT EXISTS idx_soil_air_humidity_greenhouse ON soil_air_humidity (greenhouse);";
+                                CREATE INDEX IF NOT EXISTS idx_soil_humidity_air_humidity_greenhouse ON soil_humidity_air_humidity (greenhouse);";
 
                 return CreateMigrationRegister<CreateHumidityTable>(query);
             }

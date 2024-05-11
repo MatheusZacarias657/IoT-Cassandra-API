@@ -1,7 +1,7 @@
 ﻿using Cassandra;
 using IoTCassandraAPI.Domain.Entity;
 
-namespace IoTCassandraAPI.Domain.Interface.Service
+namespace Domain.Interface.API.Service
 {
     public interface IDataManipulationService
     {

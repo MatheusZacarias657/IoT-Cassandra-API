@@ -11,8 +11,7 @@ namespace IoTCassandraAPI.Migrations.Scripts
         {
             try
             {
-                string query = @"CREATE INDEX IF NOT EXISTS idx_soil_greenhouse ON soil_humidity (greenhouse);
-                                 CREATE INDEX IF NOT EXISTS idx_soil_id ON soil_humidity (id);";
+                string query = @"CREATE INDEX IF NOT EXISTS idx_soil_greenhouse ON soil_humidity (greenhouse);";
 
                 return CreateMigrationRegister<CreateSoilHumidityIndexes>(query);
             }

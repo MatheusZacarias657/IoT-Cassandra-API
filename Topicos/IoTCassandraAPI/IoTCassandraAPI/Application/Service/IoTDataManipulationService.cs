@@ -1,7 +1,7 @@
 ﻿using Cassandra;
+using Domain.Interface.API.Repository;
+using Domain.Interface.API.Service;
 using IoTCassandraAPI.Domain.Entity;
-using IoTCassandraAPI.Domain.Interface.Repository;
-using IoTCassandraAPI.Domain.Interface.Service;
 using Newtonsoft.Json.Linq;
 using System.Globalization;
 
