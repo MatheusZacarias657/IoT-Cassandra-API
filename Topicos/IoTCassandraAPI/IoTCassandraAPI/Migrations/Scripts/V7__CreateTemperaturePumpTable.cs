@@ -14,7 +14,7 @@ namespace IoTCassandraAPI.Migrations.Scripts
                                 greenhouse TEXT,
                                 id TEXT,
                                 temperature_value DOUBLE,
-                                pump_value BOOLEAN,
+                                pump_value INT,
                                 register_date TIMESTAMP,
                                 PRIMARY KEY((register_date), id)
                             );

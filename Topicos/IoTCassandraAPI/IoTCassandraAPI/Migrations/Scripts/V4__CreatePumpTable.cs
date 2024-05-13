@@ -13,7 +13,7 @@ namespace IoTCassandraAPI.Migrations.Scripts
                 string query = @"CREATE TABLE IF NOT EXISTS pump (
                                     greenhouse TEXT,
                                     id TEXT,
-                                    value BOOLEAN,
+                                    value INT,
                                     register_date TIMESTAMP,
                                     PRIMARY KEY((register_date), id)
                                 );

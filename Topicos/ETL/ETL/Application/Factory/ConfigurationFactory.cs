@@ -29,7 +29,7 @@ namespace ETL.Application.Factory
             string timeText = GetValue(field);
             TimeSpan time = TimeSpan.Parse(timeText);
 
-            return Convert.ToDouble(time.Seconds);
+            return Convert.ToDouble(time.TotalSeconds);
         }
     }
 }

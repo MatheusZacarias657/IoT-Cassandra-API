@@ -26,7 +26,7 @@ namespace Domain.DTO.ETL
 
         public ExecutionAction(string lastExecution, string relatedTables, string id)
         {
-            LastExecution = DateTime.Parse(lastExecution);
+            LastExecution = DateTime.Parse(lastExecution[..^6]);
             RelatedTables = relatedTables.Split(',').ToList();
             Id = id;
         }

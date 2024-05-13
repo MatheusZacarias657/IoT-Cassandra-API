@@ -41,11 +41,15 @@ namespace ETL.Application.Service
             foreach(IGrouping<DateTime, DataReference> groupReference in combinedData)
             {
                 List<DataReference> datas = new(groupReference);
-                JsonObject register = new ();
-                
-                foreach(DataReference data in datas)
+                JsonObject register = new()
                 {
-                    register[$"{data.Table}_value"] = data.Value;
+                    ["register_date"] = groupReference.Key.ToString("yyyy-MM-dd HH:mm:ss.fff")
+                };
+
+                foreach (DataReference data in datas)
+                {
+                    string value = (data.Value.Contains(',')) ? data.Value.Replace(',', '.') : data.Value;
+                    register[$"{data.Table}_value"] = value;
                 }
 
                 results.Add(register);

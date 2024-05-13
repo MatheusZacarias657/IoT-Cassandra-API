@@ -21,6 +21,8 @@ namespace ETL
                 System.Timers.Timer timer = new(tickTime);
                 timer.Elapsed += (sender, e) => ExecuteETL();
                 timer.Start();
+
+                Console.WriteLine($"Schedule Next execution to {scheduledTime}");
             }
             catch (Exception)
             {

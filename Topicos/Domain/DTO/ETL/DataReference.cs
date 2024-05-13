@@ -10,7 +10,7 @@ namespace Domain.DTO.ETL
 
         public DataReference(string value, string registerDate, string table)
         {
-            RegisterDate = DateTime.Parse(registerDate);
+            RegisterDate = DateTime.Parse(registerDate[..^6]);
             Value = value;
             Table = table;
         }

@@ -39,16 +39,19 @@ namespace ETL.Repository
 
         internal void Load(List<JsonObject> registers, string greenhouse, string tablename)
         {
+            Console.WriteLine("Inicialize the data load");
+
             foreach (JsonObject register in registers)
             {
                 register["greenhouse"] = greenhouse;
                 register["id"] = Guid.NewGuid().ToString();
-                register["register_date"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
 
                 string query = QueryHelper.GetInsertQuery(register, tablename);
                 PreparedStatement statement = _session.Prepare(query);
                 _session.Execute(statement.Bind());
             }
+
+            Console.WriteLine("All data was loaded");
         }
     }
 }

@@ -34,12 +34,13 @@ namespace ETL.Application.Processing
 
                     if(executionDate != null)
                     {
+                        Console.WriteLine($"The most recente data was from {executionDate} register this value in last execution");
                         _etlRepository.UpdateExecution(action.Id, executionDate.Value);
                     }
                 }
             }
 
-            Console.WriteLine("ExecuteExtraction");
+            Console.WriteLine("End of Execution");
         }
 
         private List<ExecutionReference> GetExecutions()
@@ -64,7 +65,10 @@ namespace ETL.Application.Processing
 
             foreach (string table in action.RelatedTables)
             {
+               
+                Console.WriteLine($"Extracting data from {table} about {greenhouse}");
                 List<DataReference> data = _dataRepository.Extract(greenhouse, table, lastExecution);
+                Console.WriteLine($"This table contains {data.Count} registers to be proccess");
 
                 if (data.Count == 0)
                     return null;
@@ -74,8 +78,8 @@ namespace ETL.Application.Processing
             }
 
             tableName = tableName[..^1];
-
             CombinedData registers = DataTransformer.Combine(refereces);
+            Console.WriteLine($"The extraction of {tableName} contains {registers.Registers.Count} groups");
             _dataRepository.Load(registers.Registers, greenhouse, tableName);
 
             return registers.LasExecution;
